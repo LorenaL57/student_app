@@ -31,7 +31,7 @@ const name = firebase.auth().currentUser.displayName;
               Grades
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btnDocs} onPress={() => {}}>
+          <TouchableOpacity style={styles.btnDocs}  onPress={() =>  props.navigation.navigate({routeName: "Documents"})}>
             <Text style={styles.txtbtn} >
               Documents
             </Text>

@@ -1,10 +1,11 @@
-
+import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 import WelcomeScreen from "./WelcomeScreen";
 import LoginScreen from "./LoginScreen";
 import SignupScreen from "./SignupScreen";
 import HomeScreen from "./HomeScreen";
-import { createAppContainer } from "react-navigation";
+import DocScreen from "./DocScreen";
+
 
 const Navigator =createStackNavigator({
     Welcome:{
@@ -21,6 +22,10 @@ const Navigator =createStackNavigator({
     },
     Home:{
         screen: HomeScreen
+        
+    },
+    Documents:{
+        screen: DocScreen,
         
     },
 })
