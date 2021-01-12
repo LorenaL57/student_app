@@ -22,7 +22,6 @@ const Welcome=(props)=>{
               </Text>
           
           </TouchableOpacity>
-
           <TouchableOpacity style={styles.login} onPress={() =>  props.navigation.navigate({routeName: "Login"})}>
           
               <Text style={styles.buttonText}>

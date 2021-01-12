@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, View, ImageBackground, Image, TouchableOpacity,Text } from 'react-native';
+
 import firebase from "../database/firebase";
 const HomeScreen=(props)=>{
 
@@ -31,6 +32,7 @@ const name = firebase.auth().currentUser.displayName;
               Grades
             </Text>
           </TouchableOpacity>
+          
           <TouchableOpacity style={styles.btnDocs}  onPress={() =>  props.navigation.navigate({routeName: "Documents"})}>
             <Text style={styles.txtbtn} >
               Documents
@@ -40,12 +42,12 @@ const name = firebase.auth().currentUser.displayName;
           <View style={styles.second}>
           <TouchableOpacity
           style={styles.btnTutoriale}
-          onPress={() => {}}>
+          onPress={() => props.navigation.navigate({routeName: "Tutorials"})}>
             <Text style={styles.txtbtn}>
               Tutorials
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.btnQuize} onPress={() => {}}>
+          <TouchableOpacity style={styles.btnQuize} onPress={() => props.navigation.navigate({routeName: "Quiz"})}>
             <Text style={styles.txtbtn} >
               Quiz
             </Text>
@@ -124,7 +126,7 @@ const styles = StyleSheet.create({
         height: 125,
         width: 125,
         borderRadius: 400, 
-        backgroundColor: "#FAD6E2",
+        backgroundColor: "#9F9F9F",
         borderWidth: 1,
         borderColor: "#000",
       },

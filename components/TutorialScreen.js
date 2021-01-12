@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, View, ImageBackground, FlatList, TouchableOpacity,Text, Linking, Image  } from 'react-native';
-import {BUTTON} from "../data/dummyData"
+import {TUTORIALS} from "../data/dummyData"
 
-const DocScreen=(props)=>{
+const TutorialScreen=(props)=>{
 
-const renderButtons = (itemData)=>{
+const renderTutorials = (itemData)=>{
 
     const buttonClick = () => {
         Linking.canOpenURL(itemData.item.link).then(supported => {
@@ -19,10 +19,6 @@ const renderButtons = (itemData)=>{
       
     return <TouchableOpacity onPress={() =>buttonClick()}><View style={styles.buttonsGrid}><Text style={styles.buttonText}>{itemData.item.title}</Text></View></TouchableOpacity>
 } 
- 
-
-    
-
     return(
         <ImageBackground
         style={styles.background}
@@ -30,15 +26,17 @@ const renderButtons = (itemData)=>{
         source={{uri: ("https://i.pinimg.com/736x/65/9a/2b/659a2bc335f31700cacba5e1f2556b1f.jpg")}}>
          <View style={styles.logoview}>
           <Image style={styles.logo} source={require("../assets/customLogo.gif")} />
-          <Text style={styles.welcome}>Your list of documents</Text>
+          <Text style={styles.welcome}>Your Tutorials</Text>
           </View>
-        <FlatList  keyExtractor={(item,index)=> item.id} numColumns={1} data={BUTTON} renderItem={renderButtons}/>
+        <FlatList  keyExtractor={(item,index)=> item.id} numColumns={1} data={TUTORIALS} renderItem={renderTutorials}/>
          
         </ImageBackground>
         
     )
 }
-export default DocScreen;
+export default TutorialScreen;
+
+
 const styles = StyleSheet.create({
     background: {
         flex: 1,
@@ -55,7 +53,7 @@ const styles = StyleSheet.create({
         alignItems:"center",
         borderColor: "#000",
         borderWidth: 2,
-        backgroundColor: "#f4f3ff",
+        backgroundColor: "#ddfdff",
         opacity: 0.8
         
       },

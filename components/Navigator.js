@@ -5,7 +5,8 @@ import LoginScreen from "./LoginScreen";
 import SignupScreen from "./SignupScreen";
 import HomeScreen from "./HomeScreen";
 import DocScreen from "./DocScreen";
-
+import TutorialScreen from "./TutorialScreen";
+import QuizScreen from "./QuizScreen"
 
 const Navigator =createStackNavigator({
     Welcome:{
@@ -26,6 +27,14 @@ const Navigator =createStackNavigator({
     },
     Documents:{
         screen: DocScreen,
+        
+    },
+    Tutorials:{
+        screen: TutorialScreen,
+        
+    },
+    Quiz:{
+        screen: QuizScreen,
         
     },
 })
