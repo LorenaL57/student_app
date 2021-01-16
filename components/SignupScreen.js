@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet, View, ImageBackground, Image, TouchableOpacity,Text, TextInput, KeyboardAvoidingView, Keyboard } from 'react-native';
+import { StyleSheet, Alert, View, ImageBackground, Image, TouchableOpacity,Text, TextInput, KeyboardAvoidingView, Keyboard } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import firebase from "../database/firebase";
 const SignUpScreen=(props)=>{
@@ -13,7 +13,7 @@ const SignUpScreen=(props)=>{
         setPasswordVisibility(!hidePassword)
     }
 
-    userRegister=()=>
+ userRegister=()=>
     {
         if(email!="" && password!= "" && fullName!=""){
             firebase
@@ -23,6 +23,15 @@ const SignUpScreen=(props)=>{
             res.user.updateProfile({
                 displayName: fullName,
               });
+              Alert.alert(
+                "Welcome!",
+                "Take a look around to find what you need!",
+                [
+                  
+                  { text: "OK", onPress: () => console.log("OK Pressed") }
+                ],
+                { cancelable: false }
+              );
             setFullName("");
             setEmail("");
             setPassword("");

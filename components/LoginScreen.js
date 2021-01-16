@@ -21,7 +21,6 @@ const LoginScreen=(props)=>{
         .signInWithEmailAndPassword(email,password)
         .then((res) => {
             console.log(res);
-            alert("Miresevini!");
             setEmail("");
             setPassword("");
             props.navigation.navigate({routeName: "Home"})

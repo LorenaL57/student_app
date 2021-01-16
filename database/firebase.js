@@ -1,6 +1,6 @@
 import * as firebase from "firebase";
 
-const firebaseConfigs = {
+const firebaseConfig = {
   apiKey: "AIzaSyCENqs7JM5Wvhy5KB1X1sNI5ySoK3iD5zw",
   authDomain: "student-app-e65d9.firebaseapp.com",
   databaseURL: "https://student-app-e65d9.firebaseio.com",
@@ -10,6 +10,6 @@ const firebaseConfigs = {
   appId: "1:443858486316:web:7abbb138322c6cdae97d89",
 };
 
-firebase.initializeApp(firebaseConfigs);
+firebase.default.initializeApp(firebaseConfig);
 
 export default firebase;
