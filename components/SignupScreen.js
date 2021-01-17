@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { StyleSheet, Alert, View, ImageBackground, Image, TouchableOpacity,Text, TextInput, KeyboardAvoidingView, Keyboard } from 'react-native';
+import { StyleSheet, Alert, View, Platform, ImageBackground, Image, TouchableOpacity,Text, TextInput, KeyboardAvoidingView, Keyboard } from 'react-native';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import firebase from "../database/firebase";
 const SignUpScreen=(props)=>{
@@ -48,7 +48,8 @@ const SignUpScreen=(props)=>{
         source={{uri: ("https://i.pinimg.com/736x/65/9a/2b/659a2bc335f31700cacba5e1f2556b1f.jpg")}}>
         <Image source={require("../assets/customLogo.gif")} style={styles.logo}/>
 
-       <KeyboardAvoidingView behavior="position">
+       <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}>
            <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
         <View style={styles.textBoxContainer}>
 
@@ -92,14 +93,15 @@ const SignUpScreen=(props)=>{
               />
             </TouchableOpacity>
           </View>
-          </TouchableWithoutFeedback>
-          </KeyboardAvoidingView>
+
           <TouchableOpacity style={styles.signup} onPress={()=>userRegister()}>
             <Text style={styles.signupText} >
               Sign Up
             </Text>
           </TouchableOpacity>
-         
+          
+          </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>  
          
         </ImageBackground>
     )
@@ -109,10 +111,11 @@ export default SignUpScreen;
 const styles = StyleSheet.create({
     background: {
         flex: 1,
-        justifyContent:"flex-start",
-       
-        
+        justifyContent:"flex-start", 
       },
+    flext:{
+      flex:1,
+    },
       buttonText:{
         fontSize:20,
       },

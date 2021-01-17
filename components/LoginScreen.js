@@ -36,7 +36,8 @@ const LoginScreen=(props)=>{
 
         <Image source={require("../assets/customLogo.gif")} style={styles.logo}/>
 
-        <KeyboardAvoidingView behavior="position">
+        <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"}
+      style={styles.container}>
             <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
         <View style={styles.textBoxContainer}>
         
@@ -72,8 +73,7 @@ const LoginScreen=(props)=>{
             </TouchableOpacity>
             
           </View>
-          </TouchableWithoutFeedback>
-          </KeyboardAvoidingView>
+
           <Text style={styles.forgot}>
             Forgot your password? Click here to set a new one!
           </Text>
@@ -82,7 +82,8 @@ const LoginScreen=(props)=>{
               Log in
             </Text>
           </TouchableOpacity>
-         
+                   </TouchableWithoutFeedback>
+          </KeyboardAvoidingView>
          
         </ImageBackground>
     )
@@ -93,8 +94,9 @@ const styles = StyleSheet.create({
     background: {
         flex: 1,
         justifyContent:"flex-start",
-       
-        
+      },
+      container:{
+        flex:1,
       },
       buttonText:{
         fontSize:20,
